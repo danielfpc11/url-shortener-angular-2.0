@@ -1,5 +1,4 @@
-<main *ngIf="urlItems$ | async let urlItems">
-  <li *ngFor="let urlItem of urlItems">
-    {{ urlItem.id }} - {{ urlItem.url }} - {{ urlItem.shortenedUrlId }} - {{ urlItem.description }}
-  </li>
-</main>
+<ng-container *ngIf="urlItems$ | async let urlItems">
+  <h1>{{ 'urlItem.components.home.title' | translate }}</h1>
+  <url-item-list [urlItems]="urlItems"/>
+</ng-container>
