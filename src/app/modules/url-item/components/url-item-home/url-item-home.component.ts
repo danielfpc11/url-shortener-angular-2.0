@@ -4,7 +4,7 @@ import { UrlItem } from '../../models';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-url-item-home',
+  selector: 'url-item-home',
   templateUrl: './url-item-home.component.html',
   styleUrls: ['./url-item-home.component.scss']
 })
