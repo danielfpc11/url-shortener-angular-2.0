@@ -1,2 +1,5 @@
-<p>url-item-home works!</p>
-s
+<main *ngIf="urlItems$ | async let urlItems">
+  <li *ngFor="let urlItem of urlItems">
+    {{ urlItem.id }} - {{ urlItem.url }} - {{ urlItem.shortenedUrlId }} - {{ urlItem.description }}
+  </li>
+</main>
