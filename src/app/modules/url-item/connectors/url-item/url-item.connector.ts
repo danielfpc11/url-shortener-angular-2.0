@@ -1,8 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { UrlItem } from '../../models';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class UrlItemConnector {
+export abstract class UrlItemConnector {
+
+  public abstract findAll(): Observable<UrlItem[]>;
+
+  public abstract findById(id: number): Observable<UrlItem>;
+
+  public abstract findUrlByShortenedUrlId(shortenedUrlId: string): Observable<string>;
+
+  public abstract create(urlItem: UrlItem): Observable<void>;
+
+  public abstract update(urlItem: UrlItem): Observable<void>;
+
+  public abstract delete(id: number): Observable<void>;
 
 }
