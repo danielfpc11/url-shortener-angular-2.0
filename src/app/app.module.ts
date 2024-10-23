@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DefaultUrlItemService, UrlItemModule, UrlItemService } from './modules';
+import { UrlItemModule } from './modules';
 import { AppI18nModule } from './app-i18n.module';
-import { ClipboardService, DefaultClipboardService } from './shared';
+import { SharedModule } from './shared';
 
 @NgModule({
   declarations: [
@@ -16,11 +16,8 @@ import { ClipboardService, DefaultClipboardService } from './shared';
     AppRoutingModule,
     AppI18nModule,
     HttpClientModule,
+    SharedModule,
     UrlItemModule
-  ],
-  providers: [
-    {provide: UrlItemService, useClass: DefaultUrlItemService},
-    {provide: ClipboardService, useClass: DefaultClipboardService}
   ],
   bootstrap: [AppComponent]
 })
