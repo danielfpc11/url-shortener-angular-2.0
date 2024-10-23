@@ -1,2 +1,2 @@
-export * from './default-url-item-repository.service';
-export * from './url-item-repository.service';
+export * from './default-url-item-api.service';
+export * from './url-item-api.service';
