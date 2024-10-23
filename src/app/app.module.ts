@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { UrlItemModule } from './modules';
+import { DefaultUrlItemService, UrlItemModule, UrlItemService } from './modules';
 import { AppI18nModule } from './app-i18n.module';
 
 @NgModule({
@@ -17,7 +17,9 @@ import { AppI18nModule } from './app-i18n.module';
     HttpClientModule,
     UrlItemModule
   ],
-  providers: [],
+  providers: [
+    {provide: UrlItemService, useClass: DefaultUrlItemService}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

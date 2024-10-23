@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UrlItem } from '../models';
-import { URL_ITEM_ENDPOINT } from '../../../shared';
+import { UrlItem } from '../../models';
+import { URL_ITEM_ENDPOINT } from '../../../../shared';
+import { UrlItemService } from './url-item.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UrlItemService {
+export class DefaultUrlItemService implements UrlItemService {
 
   constructor(protected httpClient: HttpClient) {
   }
