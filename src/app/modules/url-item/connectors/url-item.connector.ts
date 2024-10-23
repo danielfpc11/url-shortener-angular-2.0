@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { UrlItemService } from '../services';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { UrlItem } from '../models';
+import { UrlItemAdapter } from '../adapters';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,15 @@ export class UrlItemConnector {
   }
 
   public findAll(): Observable<UrlItem[]> {
-    return this.urlItemService.findAll();
+    return this.urlItemService
+               .findAll()
+               .pipe(map((dataList: any[]): UrlItem[] => dataList.map((data: any): UrlItem => UrlItemAdapter.adaptResponseBody(data))));
   }
 
   public findById(id: number): Observable<UrlItem> {
-    return this.urlItemService.findById(id);
+    return this.urlItemService
+               .findById(id)
+               .pipe(map((data: any): UrlItem => UrlItemAdapter.adaptResponseBody(data)));
   }
 
   public findUrlByShortenedUrlId(shortenedUrlId: string): Observable<string> {
@@ -24,11 +29,11 @@ export class UrlItemConnector {
   }
 
   public create(urlItem: UrlItem): Observable<void> {
-    return this.urlItemService.create(urlItem);
+    return this.urlItemService.create(UrlItemAdapter.adaptRequestBody(urlItem));
   }
 
   public update(urlItem: UrlItem): Observable<void> {
-    return this.urlItemService.update(urlItem);
+    return this.urlItemService.update(UrlItemAdapter.adaptRequestBody(urlItem));
   }
 
   public delete(id: number): Observable<void> {
