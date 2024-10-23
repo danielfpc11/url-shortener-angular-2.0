@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UrlItemConnector } from '../../connectors';
 import { UrlItem } from '../../models';
 import { Observable } from 'rxjs';
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   templateUrl: './url-item-home.component.html',
   styleUrls: ['./url-item-home.component.scss']
 })
-export class UrlItemHomeComponent {
+export class UrlItemHomeComponent implements OnInit {
 
   protected urlItems$!: Observable<UrlItem[]>;
 
