@@ -1,1 +1,10 @@
-<p>url-item-list works!</p>
+<li *ngFor="let urlItem of urlItems">
+  {{ urlItem.id }} - {{ urlItem.url }} - {{ urlItem.shortenedUrlId }} - {{ urlItem.description }}
+  <button (click)="copyShortenedUrlToClipboard(urlItem.shortenedUrlId)">
+    📋 {{ 'urlItem.components.list.copy' | translate }}
+  </button>
+  <button (click)="deleteUrlItem(urlItem.id!)">
+    X {{ 'urlItem.components.list.delete' | translate }}
+  </button>
+</li>
+<

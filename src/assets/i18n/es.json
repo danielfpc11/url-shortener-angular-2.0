@@ -3,6 +3,10 @@
     "components": {
       "home": {
         "title": "Urls Acortadas"
+      },
+      "list": {
+        "copy": "Copiar",
+        "delete": "Eliminar"
       }
     }
   }
