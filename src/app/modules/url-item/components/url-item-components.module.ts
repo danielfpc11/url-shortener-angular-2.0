@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { UrlItemHomeModule } from './url-item-home';
 
 @NgModule({
-  declarations: [],
   imports: [
-    CommonModule
+    UrlItemHomeModule
   ]
 })
 export class UrlItemComponentsModule {
