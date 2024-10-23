@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { UrlItem } from '../../models';
 
-export abstract class UrlItemApiService {
+export abstract class UrlItemService {
 
   public abstract findAll(): Observable<UrlItem[]>;
 

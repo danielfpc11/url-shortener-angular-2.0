@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UrlItemApiService } from './url-item-api.service';
+import { UrlItemService } from './url-item.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UrlItem } from '../../models';
@@ -8,7 +8,7 @@ import { URL_ITEM_ENDPOINT } from '../../../../shared';
 @Injectable({
   providedIn: 'root'
 })
-export class DefaultUrlItemApiService extends UrlItemApiService {
+export class DefaultUrlItemService extends UrlItemService {
 
   constructor(protected httpClient: HttpClient) {
     super();
