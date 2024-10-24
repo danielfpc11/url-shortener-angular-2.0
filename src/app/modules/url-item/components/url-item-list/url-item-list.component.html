@@ -1,9 +1,33 @@
-<li *ngFor="let urlItem of urlItems">
-  {{ urlItem.id }} - {{ urlItem.url }} - {{ urlItem.shortenedUrlId }} - {{ urlItem.description }}
-  <button (click)="copyShortenedUrlToClipboard(urlItem.shortenedUrlId)">
-    📋 {{ 'urlItem.components.list.copy' | translate }}
+<table class="table table-info table-borderless table-hover">
+  <thead>
+    <tr>
+      <th scope="col">{{ 'urlItem.components.list.headers.id' | translate }}</th>
+      <th scope="col">{{ 'urlItem.components.list.headers.shortenedUrlId' | translate }}</th>
+      <th scope="col">{{ 'urlItem.components.list.headers.description' | translate }}</th>
+      <th scope="col">{{ 'urlItem.components.list.headers.actions' | translate }}</th>
+    </tr>
+  </thead>
+  <tbody class="align-middle">
+    <tr *ngFor="let urlItem of urlItems">
+      <th class="col-1" scope="row">{{ urlItem.id }}</th>
+      <td class="col-2">{{ urlItem.shortenedUrlId }}</td>
+      <td class="col-5">{{ urlItem.description }}</td>
+      <td>
+        <ng-container [ngTemplateOutlet]='actionButtons' [ngTemplateOutletContext]="{urlItem: urlItem}"/>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #actionButtons let-urlItem='urlItem'>
+  <button (click)="copyShortenedUrlToClipboard(urlItem.shortenedUrlId)"
+          type="button"
+          class="btn btn-primary me-2 mb-sm-1 mb-md-0">
+    📋 {{ 'urlItem.components.list.actions.copy' | translate }}
   </button>
-  <button (click)="deleteUrlItem(urlItem.id!)">
-    X {{ 'urlItem.components.list.delete' | translate }}
+  <button (click)="deleteUrlItem(urlItem.id!)"
+          type="button"
+          class="btn btn-secondary">
+    🗑️ {{ 'urlItem.components.list.actions.delete' | translate }}
   </button>
-</li>
+</ng-template>

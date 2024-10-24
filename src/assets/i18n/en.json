@@ -5,8 +5,16 @@
         "title": "Shortened Urls"
       },
       "list": {
-        "copy": "Copy",
-        "delete": "Delete"
+        "headers": {
+          "id": "Id",
+          "shortenedUrlId": "Shortened Url Id",
+          "description": "Description",
+          "actions": "Actions"
+        },
+        "actions": {
+          "copy": "Copy",
+          "delete": "Delete"
+        }
       }
     }
   }
